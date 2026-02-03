@@ -26,7 +26,7 @@ To run the tests: `pytest`
 
 ## Installation & Setup
 1. Clone the repository:
-` FILL THIS IN `
+`https://github.com/flowryrompas/health-habit-tracker-gui.git`
 2. Create and activate a virtual environment:
 ```
 python -m venv .venv
