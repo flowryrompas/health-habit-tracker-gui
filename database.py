@@ -55,10 +55,18 @@ def add_entry_to_db(data_dict, db_name=DB_NAME):
 def fetch_all_data(db_name=DB_NAME):
     """Retrieves all records from the database as a Pandas DataFrame."""
     conn = sqlite3.connect(db_name)
-    # This is a cool Pandas feature: it can run SQL queries directly!
+    # a Pandas feature: it can run SQL queries directly
     df = pd.read_sql("SELECT * FROM health_logs", conn)
     conn.close()
     return df
+
+def clear_data(db_name=DB_NAME):
+    # clear all the data and restart
+    conn = sqlite3.connect(db_name)
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM health_logs") # SQL command to delete all rows but keeps headers
+    conn.commit()
+    conn.close()
 
 # Run the initialization immediately when this file is imported
 initialize_db()

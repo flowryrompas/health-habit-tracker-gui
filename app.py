@@ -1,5 +1,5 @@
 import streamlit as st
-from database import add_entry_to_db, fetch_all_data
+from database import add_entry_to_db, fetch_all_data, clear_data
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -31,6 +31,13 @@ with st.sidebar:
         }
         add_entry_to_db(new_entry)
         st.success(f"Entry for {input_date} added to database!") # show a success message
+
+
+if st.sidebar.button("Clear All Data"):
+    clear_data()
+    st.success("Data Cleared!")
+    st.rerun() # forces app to restart 
+
 
 df = fetch_all_data()  # Fetch data from database
 
@@ -85,3 +92,5 @@ else:
             width='stretch', # make the table use the full width of the container
             hide_index=True # hide the index column
         )
+
+
