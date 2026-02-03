@@ -1,0 +1,12 @@
+# Python caches
+__pycache__/
+.pytest_cache/
+
+# Virtual environment
+.venv/
+
+# Local database
+*.db
+# OS Specific files
+.DS_Store
+
